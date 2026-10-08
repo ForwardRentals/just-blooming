@@ -1,0 +1,769 @@
+<title>Just Blooming</title>
+<meta name="description" content="Just Blooming by Cellular Gardener: analogue PEMF sessions in the forest in Squamish, BC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Figtree:wght@400;500&display=swap">
+<style>
+/* Layout: a slow walk in. Linen rooms, one idea per room, photographs as windows onto the coast and forest outside.
+   Deliberately single-theme: the client wants linen white for every viewer. */
+:root{
+  --linen:#F4F0E8;      /* page ground */
+  --paper:#FBF9F5;      /* raised rooms */
+  --ink:#2A2B26;
+  --ink-soft:#5F5C53;
+  --moss:#4A5641;
+  --lotus:#D6C24A;      /* decorative only */
+  --rule:rgba(42,43,38,.14);
+  --f-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:"Figtree", "Helvetica Neue", Arial, sans-serif;
+  --step-0:1.0625rem; --step-1:1.3rem; --step-2:clamp(1.6rem,1.2rem + 1.6vw,2.3rem); --step-3:clamp(2.1rem,1.4rem + 3vw,3.6rem);
+  --gutter:clamp(16px,4vw,48px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--linen)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--linen);color:var(--ink);font:400 var(--step-0)/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;font-variation-settings:"opsz" 120;line-height:1.12;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:var(--step-3)}
+h2{font-size:var(--step-2)}
+h3{font-size:var(--step-1);font-variation-settings:"opsz" 40}
+p{margin:0}
+.prose{display:grid;gap:1em;max-width:62ch;color:var(--ink-soft)}
+.prose strong{color:var(--ink);font-weight:500}
+.label{font:500 .74rem/1.2 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--moss);outline-offset:3px}
+img{display:block;max-width:100%}
+
+.btn{font:500 .95rem/1 var(--f-body);display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--linen);cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--linen)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--linen) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:40px;height:40px;flex:none}
+.brand b{font:400 1.25rem/1 var(--f-display);display:block}
+.brand small{font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft)}
+.nav{display:flex;align-items:center;gap:26px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--ink-soft)}
+.nav a:hover{color:var(--ink)}
+.nav .btn{padding:.7em 1.2em}
+.menu-btn{display:none;font:500 .9rem var(--f-body);background:none;border:1px solid var(--rule);border-radius:999px;padding:.55em 1em;color:var(--ink);cursor:pointer}
+@media (max-width:880px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:flex-start;gap:18px;padding:20px var(--gutter) 26px;background:var(--linen);border-bottom:1px solid var(--rule)}
+  .nav.open{display:flex}
+}
+
+/* rooms */
+section{padding-block:clamp(64px,9vw,120px)}
+.room-paper{background:var(--paper)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:center}
+.split > *{min-width:0}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.stack{display:grid;gap:22px;align-content:start}
+.photo{margin:0;overflow:hidden;background:var(--rule)}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* threshold */
+.threshold{position:relative;min-height:clamp(560px,92vh,940px);display:grid;align-items:end;padding-block:clamp(120px,16vw,200px) clamp(48px,7vw,88px);color:#F7F3EA;overflow:hidden;background:#2E3A28}
+.threshold > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.threshold::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(18,24,16,.72) 0%,rgba(18,24,16,.42) 45%,rgba(18,24,16,.08) 80%),linear-gradient(0deg,rgba(18,24,16,.55) 0%,rgba(18,24,16,0) 45%)}
+.threshold .wrap{position:relative;z-index:2;width:100%}
+.threshold .stack{max-width:620px}
+.threshold .label{color:rgba(247,243,234,.82)}
+.threshold h1{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.4rem)}
+.threshold .lede{font-size:var(--step-1);line-height:1.5;color:rgba(247,243,234,.88);max-width:36ch;font-family:var(--f-display);font-variation-settings:"opsz" 30}
+.threshold .btn{background:#F7F3EA;color:#22251F;border-color:#F7F3EA}
+.threshold .btn:hover{background:transparent;color:#F7F3EA}
+.threshold .btn.ghost{background:transparent;color:#F7F3EA}
+.threshold .btn.ghost:hover{background:#F7F3EA;color:#22251F}
+.listen{display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(247,243,234,.3);font-size:.92rem;color:rgba(247,243,234,.85)}
+.listen svg{width:34px;height:34px;flex:none}
+.listen a{color:#F7F3EA;font-weight:500}
+
+/* sound toggle */
+.sound{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;padding:.6em 1.1em .6em .7em;border-radius:999px;border:1px solid var(--rule);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);color:var(--ink);font:500 .82rem var(--f-body);cursor:pointer;box-shadow:0 6px 24px rgba(30,32,26,.12)}
+.sound .bars{display:flex;align-items:end;gap:2px;height:16px;width:18px}
+.sound .bars i{flex:1;background:var(--moss);height:30%;border-radius:1px;transition:height .4s}
+.sound[aria-pressed="true"] .bars i{animation:bar 1.6s ease-in-out infinite}
+.sound[aria-pressed="true"] .bars i:nth-child(2){animation-delay:-.5s}
+.sound[aria-pressed="true"] .bars i:nth-child(3){animation-delay:-1s}
+@keyframes bar{0%,100%{height:30%}50%{height:100%}}
+@media (prefers-reduced-motion: reduce){.sound[aria-pressed="true"] .bars i{animation:none;height:70%}}
+.sound small{display:block;font-weight:400;color:var(--ink-soft);font-size:.72rem}
+
+/* quote */
+.quote{text-align:center;padding-block:clamp(72px,11vw,150px)}
+.quote svg{width:64px;height:64px;margin:0 auto 28px;display:block}
+.quote blockquote{margin:0 auto;max-width:20ch;font:300 var(--step-3)/1.15 var(--f-display);font-variation-settings:"opsz" 144;text-wrap:balance}
+.quote cite{display:block;margin-top:22px;font:500 .78rem var(--f-body);letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:var(--ink-soft)}
+
+/* before you arrive */
+ol.before{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);margin:18px 0 0;padding:0}
+.before li{list-style:none;padding:22px 22px 0 0;display:grid;gap:8px;align-content:start}
+.before li + li{padding-left:22px;border-left:1px solid var(--rule)}
+.before b{font:400 var(--step-1)/1.2 var(--f-display)}
+.before span{color:var(--ink-soft);font-size:.95rem}
+@media (max-width:700px){ol.before{grid-template-columns:1fr}.before li + li{padding-left:0;border-left:0;border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}}
+
+/* journey */
+.pair-photos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,18px)}
+.pair-photos .photo:nth-child(2){margin-top:clamp(32px,6vw,72px)}
+.journey{align-items:center}
+.pair-photos .photo{aspect-ratio:4/5}
+.paths{display:flex;flex-wrap:wrap;gap:10px}
+.paths span{border:1px solid var(--rule);border-radius:999px;padding:.45em 1em;font-size:.9rem;color:var(--ink-soft)}
+
+/* pemf */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.compare > div{border:1px solid var(--rule);background:var(--paper);padding:18px;display:grid;gap:6px}
+.compare canvas{width:100%;height:64px;display:block}
+.compare h4{margin:6px 0 0;font:400 1.15rem var(--f-display)}
+.compare p{font-size:.88rem;color:var(--ink-soft)}
+@media (max-width:480px){.compare{grid-template-columns:1fr}}
+.measures{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--ink)}
+.measures > div{padding:24px 24px 0 0;display:grid;gap:10px;align-content:start;min-width:0}
+.measures > div + div{padding-left:24px;border-left:1px solid var(--rule)}
+.measures .unit{font:300 clamp(2rem,1.4rem + 2vw,2.8rem)/1 var(--f-display);font-variation-settings:"opsz" 144;color:var(--moss)}
+.measures h3{font-size:1.25rem}
+.measures p{color:var(--ink-soft);font-size:.95rem}
+.measures .ref{font-size:.84rem;color:var(--ink-soft);border-top:1px dashed var(--rule);padding-top:10px;font-variant-numeric:tabular-nums}
+@media (max-width:820px){.measures{grid-template-columns:1fr}.measures > div + div{padding-left:0;border-left:0;border-top:1px solid var(--rule);margin-top:24px}}
+.grove{margin:clamp(56px,8vw,96px) 0 0}
+.grove canvas{width:100%;height:clamp(240px,36vw,440px);display:block}
+.stages{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--rule);font:500 .78rem var(--f-body);letter-spacing:.12em;text-transform:uppercase}
+.stages{align-items:center}
+.stages button{background:none;border:0;padding:.4em 0;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--ink-soft);opacity:.5;cursor:pointer;border-bottom:1px solid transparent;transition:opacity .6s,color .6s,border-color .6s}
+.stages button:hover{opacity:.85}
+.stages button[aria-pressed="true"]{opacity:1;color:var(--moss);border-bottom-color:var(--moss)}
+.stages .hint{margin-left:auto;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-soft);font-size:.82rem}
+.stage-text{margin-top:16px;max-width:60ch;font:400 var(--step-1)/1.45 var(--f-display);font-variation-settings:"opsz" 30;color:var(--ink);min-height:4.4em}
+#grove{cursor:pointer;touch-action:pan-y}
+.stages i{font-style:normal;opacity:.4}
+.grove-cap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.85rem;color:var(--ink-soft)}
+.more{margin-top:clamp(56px,8vw,96px)}
+.fine{font-size:.82rem;max-width:72ch;margin-top:36px;color:var(--ink-soft)}
+.band{margin:0;height:clamp(260px,42vw,560px);overflow:hidden}
+.band img{width:100%;height:100%;object-fit:cover}
+
+/* visit */
+.steps{display:grid;gap:0;margin:12px 0 0;padding:0;counter-reset:s}
+.steps li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:18px 0;border-top:1px solid var(--rule);counter-increment:s}
+.steps li::before{content:counter(s);grid-row:span 2;font:400 1.6rem/1 var(--f-display);color:var(--moss);min-width:1.2em}
+.steps b{font:400 var(--step-1)/1.25 var(--f-display)}
+.steps span{color:var(--ink-soft);font-size:.95rem}
+
+/* story */
+.story .prose{font-family:var(--f-display);font-variation-settings:"opsz" 30;font-size:var(--step-1);line-height:1.55}
+.story .said{font-size:var(--step-2);color:var(--ink);line-height:1.2}
+
+/* care */
+.notice{border:1px solid var(--ink);padding:clamp(22px,3vw,36px);display:grid;gap:14px;background:var(--linen)}
+.notice h3{font-size:var(--step-2)}
+.care-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,64px);margin-top:44px}
+.care-grid > *{min-width:0}
+@media (max-width:820px){.care-grid{grid-template-columns:1fr}}
+.safety ul{margin:10px 0;padding-left:1.1em;color:var(--ink-soft)}
+.faq{margin-top:64px;border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 0;font:400 var(--step-1)/1.3 var(--f-display);display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--ink-soft)}
+.faq details[open] summary::after{content:"–"}
+.faq .ans{padding-bottom:22px;max-width:64ch;color:var(--ink-soft)}
+
+/* close */
+.closing{position:relative;padding:0;color:#F6F2EA}
+.closing .band{height:clamp(440px,60vw,680px);position:relative}
+.closing .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,22,.1),rgba(20,24,22,.6))}
+.closing .inner{position:absolute;inset:auto 0 0 0;padding-block:clamp(32px,6vw,72px);z-index:1}
+.closing h2{font-size:var(--step-3);max-width:16ch}
+.closing p{max-width:46ch;margin-top:14px;color:rgba(246,242,234,.88)}
+.closing .btn{margin-top:26px;background:#F6F2EA;color:#22251F;border-color:#F6F2EA}
+.closing .btn:hover{background:transparent;color:#F6F2EA}
+
+footer{padding-block:48px 64px;border-top:1px solid var(--rule);font-size:.88rem;color:var(--ink-soft)}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+footer .wrap > *{min-width:0}
+footer nav{display:flex;flex-wrap:wrap;gap:10px 20px;align-content:start}
+footer nav a{text-decoration:none}
+footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px;font-size:.8rem;max-width:90ch}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+/* booking dialog */
+dialog{border:0;padding:0;background:var(--paper);color:var(--ink);width:min(560px,calc(100% - 32px));max-height:calc(100% - 32px)}
+dialog::backdrop{background:rgba(20,22,19,.5)}
+.bk{padding:clamp(22px,4vw,36px);display:grid;gap:20px}
+.bk-head{display:flex;justify-content:space-between;align-items:start;gap:16px}
+.x{background:none;border:0;font-size:1.8rem;line-height:1;color:var(--ink);cursor:pointer}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font:500 .74rem var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.opt{display:flex;gap:12px;align-items:center;border:1px solid var(--rule);padding:12px 14px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--ink)}
+.opt span{display:grid}
+.opt small{color:var(--ink-soft)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.fields{grid-template-columns:1fr}}
+.fields label{display:grid;gap:6px;font-size:.85rem;color:var(--ink-soft)}
+.fields input{font:inherit;font-size:1rem;padding:.7em .8em;border:1px solid var(--rule);background:var(--linen);color:var(--ink)}
+.chk{font-size:.85rem;color:var(--ink-soft);display:flex;gap:10px;align-items:start}
+.bk-note{font-size:.8rem;color:var(--ink-soft)}
+.done{text-align:center;justify-items:center}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="lotus" viewBox="0 0 120 120">
+      <path d="M66 15.6A44.5 44.5 0 0 1 56 104.4" fill="none" stroke="var(--lotus)" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+      <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="60" cy="60" r="41" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g fill="currentColor"><circle cx="60" cy="16" r="3"/><circle cx="104" cy="60" r="3"/><circle cx="60" cy="104" r="3"/><circle cx="16" cy="60" r="3"/></g>
+      <path d="M22 60h7M91 60h7M60 68v36" stroke="currentColor" stroke-width="1.3" fill="none"/>
+      <g stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+        <path d="M60 68C49 70 37 67 29 60C39 57 51 60 60 68Z" fill="var(--lotus)" fill-opacity=".55"/>
+        <path d="M60 68C71 70 83 67 91 60C81 57 69 60 60 68Z" fill="none"/>
+        <path d="M60 68C49 63 41 53 42 39C52 43 58 53 60 68Z" fill="var(--lotus)" fill-opacity=".55"/>
+        <path d="M60 68C71 63 79 53 78 39C68 43 62 53 60 68Z" fill="none"/>
+        <path d="M60 68C51 58 51 43 60 32C69 43 69 58 60 68Z" fill="var(--lotus)" fill-opacity=".4"/>
+      </g>
+      <path d="M60 64V40M53 64c-3-7-5-13-6-20M67 64c3-7 5-13 6-20" stroke="currentColor" stroke-width=".7" fill="none" opacity=".6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Just Blooming home">
+      <svg><use href="#lotus"/></svg>
+      <span><b>Just Blooming</b><small>by Cellular Gardener</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="#journey">Your journey</a>
+      <a href="#pemf">What is PEMF</a>
+      <a href="#visit">Your visit</a>
+      <a href="#care">Care</a>
+      <button class="btn" data-book>Book</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- THRESHOLD -->
+<section class="threshold" id="home">
+  <img src="img/jb-moss-hero.jpg" srcset="img/jb-moss-hero-sm.jpg 1200w, img/jb-moss-hero.jpg 2400w" sizes="100vw" alt="Moss-covered maples in a green coastal rainforest" fetchpriority="high">
+  <div class="wrap">
+    <div class="stack">
+      <p class="label">Analogue PEMF · Squamish, BC</p>
+      <h1>Your visit begins before you arrive.</h1>
+      <p class="lede">A quiet PEMF practice among the trees. Come as you are, slow down, and spend an hour with your own health.</p>
+      <div class="actions">
+        <a class="btn" href="#arrive">Begin the walk in</a>
+        <button class="btn ghost" data-book>Book a session</button>
+      </div>
+      <p class="listen">
+        <svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="17" cy="17" r="16"/><path d="M8 17c2-6 4 6 6 0s4-6 6 0 4 6 6 0"/></svg>
+        <span>A soft 528 Hz soundscape plays as you explore. Turn it off any time with the sound button.<br><a href="https://open.spotify.com/track/4e7UnORlr7U0wTkeFCcLqL" target="_blank" rel="noopener">Our favourite track: Celestial Bloom ↗</a></span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote room-paper" id="arrive" aria-label="Arrive">
+  <div class="wrap">
+    <svg style="color:var(--ink)" aria-hidden="true"><use href="#lotus"/></svg>
+    <blockquote>We are all just walking each other home.</blockquote>
+    <cite>Ram Dass</cite>
+  </div>
+</section>
+
+<!-- BEFORE YOU ARRIVE -->
+<section>
+  <div class="wrap split">
+    <figure class="photo" style="aspect-ratio:4/5"><img src="img/jb-sunbeams.jpg" alt="Morning sun breaking through tall cedars onto a forest trail" style="object-position:40% center"></figure>
+    <div class="stack">
+      <p class="label">Before you come in</p>
+      <h2>Arrive a little early. Leave the day at the trailhead.</h2>
+      <div class="prose">
+        <p>The practice sits among the trees in Squamish. Park, take a breath of cedar air, and give yourself a few minutes before you knock.</p>
+        <p>On the day of your visit, try these three small things.</p>
+      </div>
+      <ol class="before">
+        <li><b>Drink water</b><span>A glass or two through the day.</span></li>
+        <li><b>Step outside</b><span>Ten minutes of fresh air, no phone.</span></li>
+        <li><b>Check in</b><span>Notice how your body feels today, without judging it.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="room-paper" id="journey">
+  <div class="wrap">
+    <div class="split journey">
+      <div class="stack">
+        <p class="label">Your health journey</p>
+        <h2>Everyone’s health looks different. Yours is worth paying attention to.</h2>
+        <div class="prose">
+          <p>There is no single right way to be well. For some people it starts with sleep, for others with time outside, a slower morning, or simply making an hour for themselves.</p>
+          <p><strong>Start where you are.</strong> Ask questions, notice what helps you feel your best, and choose the practitioners and practices that feel right to you. We’re happy to be one small part of that.</p>
+        </div>
+        <div class="paths" aria-label="Places people begin">
+          <span>Rest</span><span>Sleep</span><span>Movement</span><span>Time outside</span><span>Nourishment</span><span>Connection</span><span>Quiet</span>
+        </div>
+      </div>
+      <div class="pair-photos">
+        <figure class="photo"><img src="img/jb-fog.jpg" alt="Two surfers walking into thick coastal fog on a dark sand beach" loading="lazy"></figure>
+        <figure class="photo"><img src="img/jb-stretch.jpg" alt="A person stretching on a coastal headland as the sun sets over the ocean" loading="lazy" style="object-position:34% center"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEMF -->
+<section id="pemf">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div class="stack">
+        <p class="label">What is PEMF</p>
+        <h2>A gentle, pulsing magnetic field, explained simply.</h2>
+      </div>
+      <div class="prose">
+        <p>PEMF stands for <strong>pulsed electromagnetic field</strong>. Inside the mat are coils of wire. When a current runs through them, they create a magnetic field that rises and falls many times each second.</p>
+        <p>That field passes easily through clothing and the body, the same way the Earth’s own magnetic field does. Physics tells us that a changing magnetic field creates tiny electrical currents in anything that conducts electricity, and the body’s tissues do. This effect, called induction, is the basic idea researchers study when they look at PEMF.</p>
+        <p>During a session you lie on the mat, fully clothed, and rest. There’s nothing to swallow, apply or do.</p>
+      </div>
+    </div>
+
+    <div class="measures">
+      <div>
+        <span class="unit">Hz</span>
+        <h3>Frequency</h3>
+        <p>How many times per second the field pulses. Many PEMF programs use slow rhythms between 1 and 30 pulses per second.</p>
+        <p class="ref">The Earth’s Schumann resonance: 7.83 Hz</p>
+      </div>
+      <div>
+        <span class="unit">µT</span>
+        <h3>Intensity</h3>
+        <p>How strong the field is, measured in microtesla. Our system works at low intensity, and we always start gently.</p>
+        <p class="ref">Earth’s field: about 25–65 µT · Hospital MRI: 1.5–3 T</p>
+      </div>
+      <div>
+        <span class="unit">∿</span>
+        <h3>Waveform</h3>
+        <p>The shape of each pulse over time. This is where systems differ most, and why we chose a classic analogue one.</p>
+        <p class="ref">Ours: continuous and smoothly varying</p>
+      </div>
+    </div>
+
+    <div class="split more" style="align-items:start">
+      <div class="stack">
+        <p class="label">Analogue, not digital</p>
+        <h2>A classic analogue system, chosen on purpose.</h2>
+        <div class="prose">
+          <p>Digital signals are sampled into steps. Analogue signals are continuous and always subtly changing, the way waves, wind and breath move. Our system is analogue, so its waveform rises and falls smoothly.</p>
+        </div>
+      </div>
+      <div class="compare">
+        <div><canvas id="cvDig" aria-hidden="true"></canvas><h4>Digital</h4><p>Sampled. Stepped. Discrete values.</p></div>
+        <div><canvas id="cvAna" aria-hidden="true"></canvas><h4>Analogue</h4><p>Continuous. Fluid. Always changing.</p></div>
+      </div>
+    </div>
+
+    <figure class="grove">
+      <canvas id="grove" role="img" aria-label="An analogue signal fans out into ocean swells, then the horizon grows into a forested shore under a rising sun. Use the buttons below to move between the three stages."></canvas>
+      <div class="stages" id="stages" role="group" aria-label="Choose a stage"><button type="button" aria-pressed="true">Analogue signal</button><i aria-hidden="true">→</i><button type="button" aria-pressed="false">Ocean</button><i aria-hidden="true">→</i><button type="button" aria-pressed="false">Forest</button><span class="hint">Move across the scene or tap it to explore</span></div>
+      <p class="stage-text" id="stageText" aria-live="polite">This is an analogue signal: one continuous wave that rises and falls smoothly, with no steps. It’s the kind of waveform our PEMF system produces.</p>
+    </figure>
+
+    <div class="split more" style="align-items:start">
+      <div class="prose">
+        <h3 style="color:var(--ink)">A long history</h3>
+        <p>Scientists have studied pulsed electromagnetic fields for more than fifty years. Some medical PEMF devices have been regulated for specific clinical uses since the late 1970s, and research continues today.</p>
+        <p>Our sessions are not one of those medical uses. We offer PEMF as a wellness experience, and we share this background as information, so you can read further and decide for yourself.</p>
+      </div>
+      <div class="prose">
+        <h3 style="color:var(--ink)">What people describe</h3>
+        <p>Most people say a session simply feels like resting. Some notice warmth, a light tingling, or that they drift toward sleep. Others notice nothing at all.</p>
+        <p>All of these are normal. Everyone’s experience is different, and we can’t predict or promise how you’ll feel.</p>
+      </div>
+    </div>
+    <p class="fine">We mention the Schumann resonance because it inspires our approach. We don’t claim that PEMF reproduces the Earth’s field, or that any frequency, intensity or waveform has a particular effect on your health.</p>
+  </div>
+</section>
+<figure class="band"><img src="img/jb-coast.jpg" alt="A person sitting among coastal trees, looking out over the Pacific at sunset" loading="lazy" style="object-position:center 60%"></figure>
+
+<!-- VISIT -->
+<section class="room-paper" id="visit">
+  <div class="wrap split">
+    <figure class="photo" style="aspect-ratio:4/5"><img src="img/jb-sandals.jpg" alt="A pair of sandals left on smooth wet sand at the edge of the ocean" loading="lazy" style="object-position:center 70%"></figure>
+    <div class="stack">
+      <p class="label">Your visit</p>
+      <h2>What a session looks like</h2>
+      <ol class="steps">
+        <li><b>Arrive and settle</b><span>Take off your shoes and sit for a moment. We’ll talk about what you’re hoping for and go through the safety questions together.</span></li>
+        <li><b>Choose a setting</b><span>We explain frequency and intensity in plain language and start gently. On your first visit we walk you through the whole system.</span></li>
+        <li><b>Rest on the mat</b><span>Lie down, fully clothed, while the analogue PEMF runs. Close your eyes if you like.</span></li>
+        <li><b>Take your time leaving</b><span>Sit up slowly, have some water, and walk back out through the trees.</span></li>
+      </ol>
+      <div class="actions"><button class="btn" data-book>Book a session</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="about">
+  <div class="wrap split">
+    <div class="prose">
+      <p class="label" style="font-family:var(--f-body);font-size:.74rem">Why “Just Blooming”</p>
+      <p>A friend once told us about a trip to Jamaica. They saw an older man with a head full of dreadlocks, paddling easily upstream.</p>
+      <p>Someone on the bank called out, “You’re beautiful!”</p>
+      <p>He smiled and called back:</p>
+      <p class="said">“Just blooming.”</p>
+      <p>That stayed with us. Maybe feeling alive isn’t about fighting age or becoming someone else. Maybe it’s about tending the conditions and letting yourself grow.</p>
+    </div>
+    <figure class="photo" style="aspect-ratio:3/2"><img src="img/jb-fjord.jpg" alt="A lone paddler on a still, misty fjord below dark mountains" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- CARE -->
+<section class="room-paper" id="care">
+  <div class="wrap">
+    <div class="notice">
+      <p class="label">Please read</p>
+      <h3>Information, not medical advice</h3>
+      <div class="prose" style="max-width:72ch">
+        <p>Just Blooming is a wellness practice. Nothing on this site or in a session is medical advice. We don’t diagnose, treat, cure or prevent any condition, and we can’t promise any particular result. Everyone’s experience is different.</p>
+        <p>PEMF is not a replacement for care from your doctor or other health professionals. If you have a health concern, please talk to a qualified practitioner.</p>
+      </div>
+    </div>
+    <div class="care-grid">
+      <div class="prose">
+        <h3 style="color:var(--ink)">Your journey, your choices</h3>
+        <p>We respect conventional, naturopathic, integrative and other approaches to health, and your right to choose the practitioners and practices that feel right for you.</p>
+        <p>If you’re already working with a practitioner, let them know you’re trying PEMF.</p>
+      </div>
+      <aside class="safety" id="safety">
+        <h3>When PEMF isn’t suitable</h3>
+        <p class="prose" style="margin-top:10px">Please don’t book a PEMF session, unless a qualified professional has cleared you, if you:</p>
+        <ul>
+          <li>are pregnant or breastfeeding</li>
+          <li>have a pacemaker or another implanted electronic device</li>
+        </ul>
+        <p class="prose">If you have a significant health condition, are in active treatment or take medication, check with your practitioner before your first session.</p>
+      </aside>
+    </div>
+    <div class="faq">
+      <details><summary>What does a PEMF session feel like?</summary><div class="ans">Most people say it feels like resting. Some notice warmth or tingling. You stay fully clothed, lying down in a quiet room.</div></details>
+      <details><summary>Why analogue?</summary><div class="ans">It was a deliberate choice. An analogue system produces a continuous, smoothly changing waveform rather than a stepped digital one. We’re happy to show you how it works.</div></details>
+      <details><summary>Will PEMF help my condition?</summary><div class="ans">We can’t make that promise, and we don’t give medical advice. We share information so you can decide for yourself, ideally with a practitioner who knows your health history.</div></details>
+      <details><summary>How often do people come?</summary><div class="ans">There’s no set number. Some people come regularly, others now and then. You decide what fits your life.</div></details>
+      <details><summary>Where are you?</summary><div class="ans">2006 Cheakamus Way, Squamish, BC V0N 1T0. Questions before you book? Email njjouellet@gmail.com.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="closing" id="book">
+  <figure class="band"><img src="img/jb-lake.jpg" alt="Sunrise over a calm lake with mountains and paddlers in the distance" loading="lazy"></figure>
+  <div class="inner"><div class="wrap">
+    <h2>Begin where you are.</h2>
+    <p>Book a quiet hour among the trees. 2006 Cheakamus Way, Squamish.</p>
+    <button class="btn" data-book>Book a session</button>
+  </div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <span style="font:400 1.2rem var(--f-display);color:var(--ink)">Just Blooming</span> by Cellular Gardener<br>
+      2006 Cheakamus Way, Squamish, BC V0N 1T0 · njjouellet@gmail.com<br>
+      Photography by Jeremy Allen · The Full Time Hobby
+    </div>
+    <nav aria-label="Footer"><a href="#journey">Your journey</a><a href="#pemf">What is PEMF</a><a href="#visit">Your visit</a><a href="#care">Care</a><a href="#safety">Safety</a></nav>
+    <p class="legal">The information on this website is for general education only and is not medical advice. Just Blooming does not diagnose, treat, cure or prevent any disease or condition, and makes no promise of results. Always consult a qualified health professional about your health.</p>
+  </div>
+</footer>
+
+<button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Toggle background sound"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span><span id="soundState">Sound off</span><small>528 Hz soundscape</small></span></button>
+
+<dialog id="bookDlg" aria-labelledby="bkTitle">
+  <form class="bk" id="bkForm" method="dialog">
+    <div class="bk-head">
+      <div><p class="label">Book a session</p><h2 id="bkTitle" style="margin-top:8px">Make time for yourself.</h2></div>
+      <button type="button" class="x" id="bkClose" aria-label="Close">×</button>
+    </div>
+    <fieldset>
+      <legend>Session</legend>
+      <label class="opt"><input type="radio" name="exp" value="first" id="opt-first" checked><span><b>First PEMF session</b><small>Includes a walk-through of the system · length TBC</small></span></label>
+      <label class="opt"><input type="radio" name="exp" value="return" id="opt-return"><span><b>Returning session</b><small>Rest on the mat · length TBC</small></span></label>
+    </fieldset>
+    <div class="fields">
+      <label for="bkName">Name<input id="bkName" name="name" autocomplete="name" required></label>
+      <label for="bkEmail">Email<input id="bkEmail" name="email" type="email" autocomplete="email" required></label>
+    </div>
+    <label class="chk" for="bkSafe"><input type="checkbox" id="bkSafe" required> I understand this is not medical advice, and I’ve read <a href="#safety" id="bkSafeLink">when PEMF isn’t suitable</a>.</label>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+      <span class="bk-note">Opens your email app with the request</span>
+      <button class="btn" type="submit">Request a time</button>
+    </div>
+  </form>
+  <div class="bk done" id="bkDone" hidden>
+    <svg width="56" height="56" style="color:var(--ink)"><use href="#lotus"/></svg>
+    <h2>Almost there.</h2>
+    <p class="prose" id="bkSummary" style="text-align:center"></p>
+    <button class="btn ghost" type="button" id="bkDoneClose">Close</button>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* menu */
+  const menuBtn = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+  const setMenu = open => { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); menuBtn.textContent = open ? 'Close' : 'Menu'; };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.addEventListener('click', e => { if (e.target.closest('a,button')) setMenu(false); });
+
+  /* colours */
+  const cs = getComputedStyle(document.documentElement), C = {};
+  ['ink','ink-soft','moss','lotus'].forEach(k => C[k] = cs.getPropertyValue('--' + k).trim());
+  const alpha = (hex, a) => { const n = parseInt(hex.replace('#',''), 16); return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`; };
+
+  /* canvas helper: sized to the element, animates only while visible */
+  function living(el, draw){
+    const ctx = el.getContext('2d'), s = { ctx, w:0, h:0, t:0, visible:false, last:0 };
+    const size = () => { const r = el.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); s.w = r.width; s.h = r.height; el.width = Math.round(r.width*d); el.height = Math.round(r.height*d); ctx.setTransform(d,0,0,d,0,0); s.redraw(); };
+    s.redraw = () => { if (s.w) { ctx.clearRect(0,0,s.w,s.h); draw(s); } };
+    const loop = now => { if (!s.visible || reduce) return; const dt = Math.min((now - (s.last || now))/1000, .05); s.last = now; s.t += dt; s.redraw(); requestAnimationFrame(loop); };
+    new ResizeObserver(size).observe(el);
+    new IntersectionObserver(([e]) => { s.visible = e.isIntersecting; if (s.visible && !reduce){ s.last = 0; requestAnimationFrame(loop); } }, { threshold:.35 }).observe(el);
+    return s;
+  }
+
+  /* digital vs analogue */
+  const wave = (u,t) => Math.sin(u*9 - t*.9)*.55 + Math.sin(u*21 - t*1.4)*.2 + Math.sin(u*4 + t*.35)*.2;
+  living(document.getElementById('cvDig'), s => {
+    const { ctx, w, h, t } = s, step = w/22, mid = h/2, amp = h*.4;
+    ctx.beginPath();
+    for (let x = 0; x <= w; x += step){ const y = mid - Math.round(wave(x/w,t)*4)/4*amp; x ? ctx.lineTo(x,y) : ctx.moveTo(x,y); ctx.lineTo(x+step, y); }
+    ctx.strokeStyle = alpha(C.ink, .55); ctx.lineWidth = 1.3; ctx.stroke();
+  });
+  const ease = u => u <= 0 ? 0 : u >= 1 ? 1 : u < .5 ? 4*u*u*u : 1 - Math.pow(-2*u + 2, 3)/2;
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const cedar = (ctx, x, base, H, Wd) => {   // a tiered conifer, base at the bottom
+    const tiers = 7;
+    ctx.beginPath(); ctx.moveTo(x, base - H);
+    for (let k = 1; k <= tiers; k++){ const y = base - H + (H*.88)*k/tiers, half = Wd*(.18 + .82*k/tiers); ctx.lineTo(x + half, y); ctx.lineTo(x + half*.45, y - H*.02); }
+    ctx.lineTo(x + Wd*.06, base - H*.12); ctx.lineTo(x + Wd*.06, base); ctx.lineTo(x - Wd*.06, base); ctx.lineTo(x - Wd*.06, base - H*.12);
+    for (let k = tiers; k >= 1; k--){ const y = base - H + (H*.88)*k/tiers, half = Wd*(.18 + .82*k/tiers); ctx.lineTo(x - half*.45, y - H*.02); ctx.lineTo(x - half, y); }
+    ctx.closePath(); ctx.fill();
+  };
+
+  /* analogue card: the wave sprouts a small forest along its crest, then settles back (10 s loop) */
+  const sprouts = Array.from({ length: 13 }, (_, i) => ({ u: (i + .5)/13 + Math.sin(i*7.3)*.012, k: .55 + .45*Math.abs(Math.sin(i*3.1)), d: i*.06 }));
+  living(document.getElementById('cvAna'), s => {
+    const { ctx, w, h, t } = s, mid = h*.62, amp = h*.3;
+    const phase = reduce ? .5 : (t % 10)/10;
+    const m = ease(clamp(Math.sin(phase*Math.PI)*1.6 - .3, 0, 1));
+    const yAt = (u, tt) => mid - wave(u, tt)*amp*(1 - m*.45);
+    for (let i = 2; i >= 0; i--){
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += 2){ const y = yAt(x/w, t - i*.25) + i*2; x ? ctx.lineTo(x,y) : ctx.moveTo(x,y); }
+      ctx.strokeStyle = i ? alpha(C.lotus, .55) : C.moss; ctx.lineWidth = i ? 1 : 1.6; ctx.stroke();
+    }
+    if (m > .01){
+      ctx.fillStyle = alpha(C.moss, .85);
+      sprouts.forEach(sp => { const g = clamp((m - sp.d)/(1 - sp.d*.9), 0, 1); if (g > 0) cedar(ctx, sp.u*w, yAt(sp.u, t) + 1, h*.5*sp.k*g, Math.max(5, w*.03)*sp.k); });
+    }
+  });
+
+  /* signal → ocean → forest. Plays on its own; hover across it to scrub, tap or click to step through, or use the labels. */
+  const seeded = seed => () => (seed = (seed*16807) % 2147483647) / 2147483647;
+  let trees = [], glints = [], plantedW = 0;
+  const plant = w => {
+    const r = seeded(7); trees = []; let x = -10;
+    while (x < w + 20){ const H = .45 + r()*.55; trees.push({ x, H, W: 6 + H*9, tiers: 4 + Math.floor(r()*3) }); x += 5 + r()*11; }
+    glints = Array.from({ length: 22 }, () => ({ dx: (r() - .5), line: 1 + Math.floor(r()*7), len: 5 + r()*14, ph: r()*6 }));
+  };
+  const STAGES = [
+    { name: 'Analogue signal', text: 'This is an analogue signal: one continuous wave that rises and falls smoothly, with no steps. It’s the kind of waveform our PEMF system produces.' },
+    { name: 'Ocean', text: 'The same kind of rhythm runs through the ocean. Swells roll in as continuous waves, each one a little different from the last.' },
+    { name: 'Forest', text: 'And through the forest: trees sway, tides turn, the sun rises and sets. We chose analogue PEMF because it moves the way nature does.' },
+  ];
+  const groveEl = document.getElementById('grove'), stageBtns = [...document.querySelectorAll('#stages button')], stageText = document.getElementById('stageText');
+  let P = reduce ? 2 : 0, goal = P, user = false, idleAt = 0, clock = 0, lastT = 0, stageNow = -1;
+  const autoGoal = c => c < 2.5 ? 0 : c < 7 ? ease((c - 2.5)/4.5) : c < 9.5 ? 1 : c < 15.5 ? 1 + ease((c - 9.5)/6) : c < 24 ? 2 : 2 - 2*ease((c - 24)/4);
+  const showStage = () => {
+    const st = P < .5 ? 0 : P < 1.5 ? 1 : 2;
+    if (st === stageNow) return; stageNow = st;
+    stageBtns.forEach((b, i) => b.setAttribute('aria-pressed', i === st));
+    stageText.textContent = STAGES[st].text;
+  };
+  const steer = to => { user = true; idleAt = performance.now() + 3500; goal = clamp(to, 0, 2); if (reduce){ P = goal; grove.redraw(); } };
+  groveEl.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; const r = groveEl.getBoundingClientRect(); steer((e.clientX - r.left)/r.width*2.3 - .15); });
+  groveEl.addEventListener('click', () => steer((Math.round(P) + 1) % 3));
+  stageBtns.forEach((b, i) => { ['mouseenter','focus','click'].forEach(ev => b.addEventListener(ev, () => steer(i))); });
+  const grove = living(groveEl, s => {
+    const { ctx, w, h } = s, t = s.t, dt = Math.max(0, t - lastT); lastT = t;
+    if (plantedW !== Math.round(w)){ plantedW = Math.round(w); plant(w); }
+    if (user && performance.now() > idleAt){ user = false; clock = P < .5 ? 0 : P < 1.5 ? 7 : 15.5; }
+    if (!user && !reduce){ clock = (clock + dt) % 28; goal = autoGoal(clock); }
+    if (!reduce) P += (goal - P)*Math.min(1, dt*(user ? 3.2 : 6));
+    showStage();
+    const S1 = ease(clamp(P, 0, 1)), S2 = ease(clamp(P - 1, 0, 1));
+
+    const mid = h*.5, horizon = h*.5, N = 9;
+    // oscilloscope grid, only while it is still a signal
+    if (S1 < .99){
+      ctx.strokeStyle = alpha(C.ink, .08*(1 - S1)); ctx.lineWidth = 1;
+      for (let i = 1; i < 12; i++){ const x = w*i/12; ctx.beginPath(); ctx.moveTo(x, h*.18); ctx.lineTo(x, h*.82); ctx.stroke(); }
+      for (let j = 0; j <= 4; j++){ const y = h*.18 + h*.64*j/4; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+    }
+    // sun rising behind the ridge
+    if (S2 > 0){
+      ctx.fillStyle = alpha(C.lotus, .5*S2);
+      ctx.beginPath(); ctx.arc(w*.68, horizon - h*.04 - h*.2*S2, h*.075, 0, 7); ctx.fill();
+    }
+    // far ridge
+    if (S2 > 0){
+      ctx.beginPath(); ctx.moveTo(0, horizon);
+      for (let x = 0; x <= w; x += 4){
+        const u = x/w, r = .45 + .28*Math.sin(u*4.2 + .8) + .14*Math.sin(u*11 + 2) + .06*Math.sin(u*27);
+        ctx.lineTo(x, horizon - r*h*.34*S2);
+      }
+      ctx.lineTo(w, horizon); ctx.closePath(); ctx.fillStyle = alpha(C.moss, .13*S2); ctx.fill();
+    }
+    // the lines: one analogue signal fanning out into ocean swells
+    const sigY = x => mid - wave(x/w, t)*h*.2;
+    const lineY = (i, x) => {
+      const q = i/(N - 1), base = horizon + (h*.97 - horizon)*Math.pow(q, 1.45);
+      const k = 6 + (1 - q)*16, amp = h*(.003 + .028*q);
+      const o = base + Math.sin(x/w*k - t*(.55 + .5*q) + i*1.3)*amp + Math.sin(x/w*k*2.3 + t*.4 + i)*amp*.3;
+      return lerp(sigY(x), o, S1);
+    };
+    // shoreline forest growing out of the horizon swell
+    if (S2 > 0){
+      const canopy = x => { let top = 0; for (const tr of trees){ const d = Math.abs(x - tr.x)/tr.W; if (d < 1){ const jag = (((1 - d)*tr.tiers) % 1)*.22; top = Math.max(top, tr.H*(1 - d)*(1 - jag)); } } return top; };
+      const P = [];
+      for (let x = 0; x <= w; x += 1.5){ const sway = Math.sin(t*.6 + x*.02)*S2; P.push([x, lineY(0, x) - canopy(x + sway)*h*.2*S2]); }
+      ctx.beginPath(); P.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p));
+      for (let x = w; x >= 0; x -= 6) ctx.lineTo(x, lineY(0, x));
+      ctx.closePath(); ctx.fillStyle = alpha(C.moss, .55*S2); ctx.fill();
+    }
+    for (let i = N - 1; i >= 0; i--){
+      const q = i/(N - 1);
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += 2){ const y = lineY(i, x); x ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+      ctx.strokeStyle = alpha(C.moss, lerp(1, .3 + .6*q, S1)); ctx.lineWidth = lerp(1.6, .8 + q, S1); ctx.stroke();
+    }
+    // sun glints on the water
+    if (S2 > 0) glints.forEach(g => {
+      const q = g.line/(N - 1), x = w*.68 + g.dx*w*(.08 + .22*q), y = lineY(g.line, x) - 2;
+      ctx.strokeStyle = alpha(C.lotus, S2*(.45 + .45*Math.sin(t*1.6 + g.ph)));
+      ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x - g.len/2, y); ctx.lineTo(x + g.len/2, y); ctx.stroke();
+    });
+    // foreground cedars rising at the edges
+    if (S2 > 0){
+      const rise = (1 - S2)*h*.9;
+      ctx.fillStyle = alpha(C.moss, .82);
+      [[.035, .98, .085], [.095, .74, .07], [.965, .9, .08]].forEach(([fx, fh, fw]) => cedar(ctx, w*fx, h + rise, h*fh, Math.max(w*fw, 34)));
+    }
+    ctx.globalAlpha = 1;
+  });
+
+  /* 528 Hz soundscape, generated in the browser: a slow drone, soft ocean swell and occasional chimes.
+     Browsers only allow sound after a visitor interacts, so it starts on the first click, tap or key press. */
+  const soundBtn = document.getElementById('soundBtn'), soundState = document.getElementById('soundState');
+  let actx = null, master = null, playing = false, chimeTimer = 0, userMuted = false;
+  try { userMuted = localStorage.getItem('jb-sound') === 'off'; } catch (e) {}
+  const buildSound = () => {
+    actx = new (window.AudioContext || window.webkitAudioContext)();
+    master = actx.createGain(); master.gain.value = 0;
+    const comp = actx.createDynamicsCompressor(); master.connect(comp); comp.connect(actx.destination);
+    // shimmer delay for chimes
+    const delay = actx.createDelay(2); delay.delayTime.value = .48;
+    const fb = actx.createGain(); fb.gain.value = .38;
+    const wet = actx.createGain(); wet.gain.value = .5;
+    delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(master);
+    // drone: 528 Hz and its octaves and fifth, each slowly breathing
+    const pad = actx.createBiquadFilter(); pad.type = 'lowpass'; pad.frequency.value = 1400; pad.connect(master);
+    [[132, .22], [264, .16], [396, .06], [528, .1], [792, .035]].forEach(([f, g], i) => {
+      [-.35, .35].forEach(det => {
+        const o = actx.createOscillator(); o.type = 'sine'; o.frequency.value = f + det;
+        const v = actx.createGain(); v.gain.value = g*.5;
+        const lfo = actx.createOscillator(); lfo.frequency.value = .025 + i*.013 + (det > 0 ? .007 : 0);
+        const lg = actx.createGain(); lg.gain.value = g*.35; lfo.connect(lg); lg.connect(v.gain);
+        o.connect(v); v.connect(pad); o.start(); lfo.start();
+      });
+    });
+    // ocean: brown noise through a low-pass, swelling every ~12 s
+    const len = actx.sampleRate*4, buf = actx.createBuffer(1, len, actx.sampleRate), d = buf.getChannelData(0);
+    let last = 0; for (let i = 0; i < len; i++){ last = (last + .02*(Math.random()*2 - 1))/1.02; d[i] = last*3.2; }
+    const noise = actx.createBufferSource(); noise.buffer = buf; noise.loop = true;
+    const nf = actx.createBiquadFilter(); nf.type = 'lowpass'; nf.frequency.value = 520;
+    const ng = actx.createGain(); ng.gain.value = .05;
+    const swell = actx.createOscillator(); swell.frequency.value = .083;
+    const sg = actx.createGain(); sg.gain.value = .045; swell.connect(sg); sg.connect(ng.gain);
+    noise.connect(nf); nf.connect(ng); ng.connect(master); noise.start(); swell.start();
+    // chimes on a 528-based pentatonic
+    const notes = [528, 594, 660, 792, 880, 1056, 396];
+    const chime = () => {
+      if (!playing) return;
+      const now = actx.currentTime, f = notes[Math.floor(Math.random()*notes.length)];
+      [1, 2.76].forEach((mult, k) => {
+        const o = actx.createOscillator(); o.type = 'sine'; o.frequency.value = f*mult;
+        const g = actx.createGain(); g.gain.setValueAtTime(0, now);
+        g.gain.linearRampToValueAtTime(k ? .012 : .05, now + .02); g.gain.exponentialRampToValueAtTime(.0001, now + (k ? 1.6 : 5));
+        o.connect(g); g.connect(master); g.connect(delay); o.start(now); o.stop(now + 5.2);
+      });
+      chimeTimer = setTimeout(chime, 4000 + Math.random()*6000);
+    };
+    buildSound.chime = chime;
+  };
+  const setSound = on => {
+    if (on && !actx) buildSound();
+    if (!actx) return;
+    playing = on;
+    if (on){ actx.resume(); master.gain.cancelScheduledValues(actx.currentTime); master.gain.setTargetAtTime(.4, actx.currentTime, 1.6); clearTimeout(chimeTimer); chimeTimer = setTimeout(buildSound.chime, 2500); }
+    else { master.gain.setTargetAtTime(0, actx.currentTime, .4); clearTimeout(chimeTimer); }
+    soundBtn.setAttribute('aria-pressed', on);
+    soundState.textContent = on ? 'Sound on' : 'Sound off';
+  };
+  soundBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    userMuted = playing;
+    try { localStorage.setItem('jb-sound', userMuted ? 'off' : 'on'); } catch (err) {}
+    setSound(!playing);
+  });
+  const firstTouch = e => { if (e.target.closest && e.target.closest('#soundBtn')) return; removeEventListener('pointerdown', firstTouch, true); removeEventListener('keydown', firstTouch, true); if (!userMuted && !playing) setSound(true); };
+  addEventListener('pointerdown', firstTouch, true); addEventListener('keydown', firstTouch, true);
+  document.addEventListener('visibilitychange', () => { if (actx && playing) document.hidden ? actx.suspend() : actx.resume(); });
+
+  /* booking */
+  const dlg = document.getElementById('bookDlg'), form = document.getElementById('bkForm'), done = document.getElementById('bkDone');
+  document.querySelectorAll('[data-book]').forEach(b => b.addEventListener('click', () => { form.hidden = false; done.hidden = true; dlg.showModal(); }));
+  ['bkClose','bkDoneClose','bkSafeLink'].forEach(id => document.getElementById(id).addEventListener('click', () => dlg.close()));
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const fd = new FormData(form), exp = form.querySelector('input[name=exp]:checked').closest('.opt').querySelector('b').textContent;
+    const body = `Hi, I'd like to book a ${exp.toLowerCase()}.\n\nName: ${fd.get('name')}\nEmail: ${fd.get('email')}\nTimes that suit me: \n\nI understand this is not medical advice, and I've read when PEMF isn't suitable.`;
+    location.href = `mailto:njjouellet@gmail.com?subject=${encodeURIComponent('Booking request: ' + exp)}&body=${encodeURIComponent(body)}`;
+    document.getElementById('bkSummary').textContent = `Your email app should open with the request for a ${exp.toLowerCase()} ready to send. If it doesn't, email njjouellet@gmail.com and we'll reply with available times.`;
+    form.hidden = true; done.hidden = false;
+  });
+})();
+</script>
